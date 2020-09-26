@@ -52,10 +52,10 @@ pred = model.predict(poly.fit_transform([[220]]))
 print("The confirm cases at 220th day in india is: " + str(int(pred)))
 
 #plot the graph
-plt.scatter(x_train, y_confirm_train, color='red')
+plt.scatter(x_train, y_confirm_train, color='blue')
 plt.xlabel("Number of Days")
 plt.ylabel("Number of confirm cases")
-plt.plot(x_train, model.predict(x_poly))
+plt.plot(x_train, model.predict(x_poly), color='red')
 plt.show()
 
 #dictionary for calculating deaths
@@ -75,7 +75,7 @@ for i in dict_data_deaths.values():
 
 y_death_train = np.array(y_death_data)
 
-#fit the paramters for death 
+#fit the paramters for death
 poly.fit(x_poly, y_death_train)
 model.fit(x_poly, y_death_train)
 
@@ -84,11 +84,11 @@ pred = model.predict(poly.fit_transform([[220]]))
 print("The number of deaths on 220th day in india is: " + str(int(pred)))
 
 #plot the graph of death
-#plt.scatter(x_train, y_death_data, color='red')
-#plt.xlabel("Number of Days")
-#plt.ylabel("Number of deaths")
-#plt.plot(x_train, model.predict(x_poly))
-#plt.show()
+plt.scatter(x_train, y_death_data, color='red')
+plt.xlabel("Number of Days")
+plt.ylabel("Number of deaths")
+plt.plot(x_train, model.predict(x_poly))
+plt.show()
 
 #now see confirm cases state wise
 
@@ -119,8 +119,11 @@ pred = model.predict(poly.fit_transform([[220]]))
 print("Confirm cases may reach to " + str(int(pred)) + " in kerala")
 
 #plot the graph of confimred cases in kerala
-#plt.scatter(x_train, y_kerala_conf_train, color='red')
-#plt.show()
+plt.scatter(x_train, y_kerala_conf_train, color='blue')
+plt.plot(x_train, model.predict(x_poly), color='red')
+plt.xlabel('Number of Days')
+plt.ylabel('Confirm cases in Delhi')
+plt.show()
 
 #number of deaths in kerala
 dict_deaths_kerala = {}
@@ -148,10 +151,11 @@ pred = model.predict(poly.fit_transform([[220]]))
 print("The number of deaths on 220th day may reach to " + str(int(pred)) + " in kerala")
 
 #plot the graph
-#plt.scatter(x_train1, y_death_kerala_train, color='red')
-#plt.xlabel('Number of days')
-#plt.ylabel('Number of deaths in Kerala')
-#plt.show()
+plt.scatter(x_train1, y_death_kerala_train, color='blue')
+plt.plot(x_train, model.predict(x_poly), color='red')
+plt.xlabel('Number of days')
+plt.ylabel('Number of deaths in Kerala')
+plt.show()
 
 #confirm cases in Delhi
 dict_confirm_delhi = {}
@@ -187,11 +191,11 @@ poly_delhi.fit(x_poly_Delhi_confirm, y_delhi_conf_train)
 model.fit(x_poly_Delhi_confirm, y_delhi_conf_train)
 
 #plot the graph of confimred cases in delhi
-#plt.scatter(x_delhi_train, y_delhi_conf_train, color='red')
-#plt.plot(x_delhi_train, model.predict(x_poly_Delhi_confirm))
-#plt.xlabel('Number of days')
-#plt.ylabel('Number of confirm cases in delhi')
-#plt.show()
+plt.scatter(x_delhi_train, y_delhi_conf_train, color='red')
+plt.plot(x_delhi_train, model.predict(x_poly_Delhi_confirm))
+plt.xlabel('Number of days')
+plt.ylabel('Number of confirm cases in delhi')
+plt.show()
 
 #predict the number of confirmed cases on 220th day
 pred = model.predict(poly_delhi.fit_transform([[220]]))
@@ -227,11 +231,11 @@ pred = model.predict(poly_delhi.fit_transform([[220]]))
 print("Deaths may reach to " + str(int(pred)) + " in delhi")
 
 #plot the graph of confimred cases in delhi
-#plt.scatter(x_delhi_train, y_death_delhi, color='red')
-#plt.plot(x_delhi_train, model.predict(x_poly_death_delhi))
-#plt.xlabel('Number of days')
-#plt.ylabel('Number of deaths in delhi')
-#plt.show()
+plt.scatter(x_delhi_train, y_death_delhi, color='red')
+plt.plot(x_delhi_train, model.predict(x_poly_death_delhi))
+plt.xlabel('Number of days')
+plt.ylabel('Number of deaths in delhi')
+plt.show()
 
 #confirmed cases in gujarat
 dict_confirm_gujarat = {}
@@ -269,11 +273,11 @@ pred = model.predict(poly_gujarat.fit_transform([[220]]))
 print("Confirm cases may reach to " + str(int(pred)) + " in gujarat")
 
 #plot confirm cases of gujarat in graph
-#plt.scatter(x_train_gujarat, y_confirm_gujarat)
-#plt.plot(x_train_gujarat, model.predict(poly_gujarat_train), color='red')
-#plt.xlabel('Number of days')
-#plt.ylabel('Number of confirm cases in gujarat')
-#plt.show() 
+plt.scatter(x_train_gujarat, y_confirm_gujarat)
+plt.plot(x_train_gujarat, model.predict(poly_gujarat_train), color='red')
+plt.xlabel('Number of days')
+plt.ylabel('Number of confirm cases in gujarat')
+plt.show()
 
 #deaths in gujarat
 dict_deaths_gujarat = {}
@@ -301,10 +305,10 @@ model1.fit(x_train_gujarat1, y_death_gujarat )
 #predict death in gujarat by 220 days
 pred = model1.predict([[200]])
 print("Number of deaths may reach to " + str(int(pred)) + " in gujarat")
-		
+
 #plot confirm cases of gujarat in graph
 plt.scatter(x_train_gujarat, y_death_gujarat)
 plt.plot(x_train_gujarat, model1.predict(x_train_gujarat1), color='red')
 plt.xlabel('Number of days')
 plt.ylabel('Number of confirm cases in gujarat')
-plt.show() 
+plt.show()
